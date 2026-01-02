@@ -1,6 +1,6 @@
 import random 
 print("welcome to sasta atm")
-pin=4636
+pin=6696968
 while True:
       num1=int(input("Enter your pin"))
       if num1==pin:
