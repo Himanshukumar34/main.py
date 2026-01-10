@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #4e131eb7, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #402323;
+}
+
+.container {
+    background: rgba(173, 15, 73, 0.388);
+    padding: 50px 100px;
+    border-radius: 50px;
+    text-align: center;
+    width: 500px;
+    box-shadow: 0 8px 20px rgba(126, 75, 104, 0.271);
+}
+
+h1 {
+    margin-bottom:30px;
+}
+
+#wordDisplay {
+    font-size: 2em;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+}
+
+#message {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+input#guessInput {
+    padding: 10px;
+    font-size: 1em;
+    width: 50px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #13231e36;
+    color: #210b0b;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #4b4d55;
+}
+
+#guessedLetters {
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.attempts {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
