@@ -9,9 +9,10 @@
 # delete_contact() – remove a contact
 
 # menu() – show options and control the program
+
 dic={}
 def add_contact():
-    name=str(input("Enter your name :"))
+    name=str(input("Enter your name :")).upper()
     while True:
         contact=input("Enter your contact no. :")
         if len(contact)>10:
@@ -30,28 +31,38 @@ def view_contact():
         for x,y in dic.items():
            print(x,":",y)
 def search_contact():
-   search=str(input("Enter your name to search  :"))
+   search=str(input("Enter your name to search  :")).upper()
    if search in dic:
       num1=dic[search]
       print(f" Name :{search} \n Contact :{num1}")
    else:
       print("your search is not in dic ")
+def update_contact():
+   name1=str(input("Enter your name which you want to update :")).upper()
+   if name1 in dic:
+      contact2=int(input("Enter your new contact: "))
+      dic[name1]=contact2
+      print("successfully update")
+   elif name1 not in dic:
+      print("your name is not find out")
+   
 def delete_contact():
-   name=str(input("Enter your name  you want to delete :"))
+   name=str(input("Enter your name  you want to delete :")).upper()
    if name in dic:
       dic.pop(name)
       print("your contact is successfully removed ")
    elif name not in dic:
       print("your name is not find out  ")
-# Main menu
+# Main menu-
 def main():
     while True:
         print("\n===== Contact Book =====")
         print("1. Add Contact")
         print("2. View Contacts")
         print("3. Search Contact")
-        print("4. Delete Contact")
-        print("5. Exit")
+        print("4. update_contact")
+        print("5. Delete Contact")
+        print("6. Exit")
 
         choice = input("Enter your choice (1-5): ")
 
@@ -62,8 +73,10 @@ def main():
         elif choice == "3":
             search_contact()
         elif choice == "4":
-            delete_contact()
+          update_contact()
         elif choice == "5":
+           delete_contact()
+        elif choice == "6":
             print("Goodbye!")
             break
         else:
