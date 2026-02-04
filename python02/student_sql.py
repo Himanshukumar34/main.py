@@ -10,15 +10,15 @@ print("sql connected")
 
 conn=mydb.cursor()
 
-
 # create a table 
 conn.execute("""
 CREATE TABLE IF NOT EXISTS record (
     roll_num INT PRIMARY KEY,
     name VARCHAR(255),
     hindi_marks INT NOT NULL,
-    english_marks INT NOT NULL,
-    math_marks INT NOT NULL
+    english_marks INT NOT NULL ,
+    math_marks INT NOT NULL ,
+    gender VARCHAR(255)
 )
 """)
 
@@ -35,8 +35,9 @@ while True:
         hindi=int(input("Enter your marks in hindi :"))
         english=int(input("Enter your marks in english :"))
         math=int(input("Enter your marks in math :"))
-        sql="INSERT INTO record(roll_num,name,hindi_marks,english_marks,math_marks)VALUES (%s, %s, %s, %s, %s)"
-        values=roll,name,hindi,english,math
+        gend=str(input("Enter your gender"))
+        sql="INSERT INTO record(roll_num,name,hindi_marks,english_marks,math_marks,gender)VALUES (%s, %s, %s, %s, %s,%s)"
+        values=roll,name,hindi,english,math,gend
         conn.execute(sql,values)
         mydb.commit()
         print("your record succrssfully saved ")
@@ -55,14 +56,15 @@ while True:
         hindi1 = int(input("Enter new Hindi marks : "))
         english1 = int(input("Enter new English marks : "))
         math1 = int(input("Enter new Math marks : "))
+        geng1=str(input("Enter your gender :"))
 
         sql = """
         UPDATE record
-        SET name=%s, hindi_marks=%s, english_marks=%s, math_marks=%s
+        SET name=%s, hindi_marks=%s, english_marks=%s, math_marks=%s , gender=%s
         WHERE roll_num=%s
         """
 
-        values = (name1, hindi1, english1, math1, rollnum)
+        values = (name1, hindi1, english1, math1, rollnum,geng1)
 
         conn.execute(sql, values)
         mydb.commit()
