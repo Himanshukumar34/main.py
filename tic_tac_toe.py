@@ -1,36 +1,56 @@
 import mysql.connector
-mydb=mysql.connector.connect(
+
+mydb = mysql.connector.connect(
     host="localhost",
+    user="root",
     password="12qwQW?@",
-    database="contact",
-    user="root"
+    database="contact"
 )
-print("connected")
-myconn=mydb.cursor()
+
+print("Connected")
+
+myconn = mydb.cursor()
+
 myconn.execute("""
-     CREATE TABLE krishna(
-               id INT PRIMARY KEY,
-               name VARCHAR(255),
-               phone INT NOT NULL,
-               Email VARCHAR(255),
-               Address VARCHAR(255)
-);""")
+CREATE TABLE IF NOT EXISTS krishna (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    phone VARCHAR(15) NOT NULL,
+    Email VARCHAR(255),
+    Address VARCHAR(255)
+)
+""")
 
 while True:
-    print("1. Add contact")
+    print("\n1. Add contact")
     print("2. View contact")
-    print("3. search contact")
-    print("4. update contact ")
-    print("5. delete contact")
-    choice=int(input("Enter your choice  :"))
-    if choice ==1:
-         name=str(input("Enter your name :")).strip()
-         phone =int(input("Enter your phone number :")).strip()
-         email=input("Enter your email :").strip()
-         address=str(input("Enter your address :")).strip()
-         num2="INSERT INTO krishna(name,phone,Email,Address), VALUES(%s,%s,%s,%s)"
-         num1=(name,phone,email,address)
-         myconn.execute(num2,num1)
-         mydb.commit()
-         print("your task is successfully created ")
-        
+    print("3. Search contact")
+    print("4. Update contact")
+    print("5. Delete contact")
+    print("6. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        name = input("Enter your name: ").strip()
+        phone = input("Enter your phone number: ")
+        email = input("Enter your email: ")
+        address = input("Enter your address: ").strip()
+
+        sql = "INSERT INTO krishna (name, phone, Email, Address) VALUES (%s, %s, %s, %s)"
+        values = (name, phone, email, address)
+
+        myconn.execute(sql, values)
+        mydb.commit()
+
+        print("✅ Contact added successfully")
+    elif choice ==2:
+        myconn.execute("SELECT *FROM krishna;")
+        data=myconn.fetchall()
+        if data:
+            for i in data:
+                print(i)
+
+    elif choice == 6:
+        break
+
