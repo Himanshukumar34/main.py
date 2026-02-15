@@ -1,50 +1,55 @@
-# Add student
-# View all students
-# Search student
-# Update marks
-# Delete student
-# Show topper
-# Exit
-num1=[]
-def add_student():
-    student=str(input("Enter student name :"))
-    roll_num=int(input("Enter your roll num :"))
-    marks1=int(input("Enter your marks in hindi:"))
-    marks2=int(input("Enter your marks in english :"))
-    marks3=int(input("Enter your student in math :"))
-    num1.append(f"""Name= {student} hindi= {marks1} english= {marks2}  math=  { marks3} Roll={roll_num}""")
-    print("record saved in data ")
-def view_all_student():
-    if not num1:
-        print("NO found student record")
-    else:
-        print("----STUDENT RECORD-----")
-        for i in num1:
-            print(i)
-        
+import mysql.connector
 
-def search_student():
-    num2=int(input("Enter roll num which you want to see:"))
-    for i in num1:
-        if i.strip()==f"Roll={num2}":
-            print(i[0],i[1],i[2],i[3],i[4])
-            
-# def update_marks():
-       
+mydb = mysql.connector.connect(
+    user="root",
+    database="new",
+    password="12qwQW?@",
+    host="localhost"
+)
+
+print("connected")
+
+myconn = mydb.cursor()
+
+myconn.execute("""
+CREATE TABLE IF NOT EXISTS accounts(
+    account_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    phone VARCHAR(15) NOT NULL,
+    balance DECIMAL(10,2) NOT NULL
+);
+""")
+
+myconn.execute("""
+CREATE TABLE IF NOT EXISTS transactions(
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    account_id INT,
+    type VARCHAR(20),
+    amount DECIMAL(10,2),
+    date_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id)
+);
+""")
+
+mydb.commit()
+
 while True:
-    print("---------student management system ------")
-    print("1. Add student")
-    print("2. View student")
-    print("3.search student")
-    print("4.update student")
-    print("5.delete student")
-    print("6.show student")
-    print("7.Exit ")
-    choice=int(input("Enter your choice ;"))
+    print("1.Create Account")
+    print("2.Deposit")
+    print("3. Withdraw")
+    print("4.Check Balance")
+    print("5.Transaction History")
+    print("Exit")
+    choice=int(input("Enter your choice: "))
     if choice==1:
-        add_student()
-    elif choice==2:
-        view_all_student()
-    elif choice==3:
-        search_student()
+        name=str(input("Enter your name: "))
+        num=int(input("Enter your phone number :"))
+        sql="INSERT INTO (name, phone , balance) VALUES(%s,%s,0)"
+        val=name,num
+        myconn.execute(sql,val)
+        print("successfully saved in data")
+    
+    
+
+
 
