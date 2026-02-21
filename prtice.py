@@ -20,7 +20,7 @@
 # else:
 #     print("it is not a palin dome number")
 
-# check vowels and cononants 
+# check vowels and cononants ``
 # num1=str(input("Enter you name:"))
 # vowels="a,e,i,o,u"
 # count=0
