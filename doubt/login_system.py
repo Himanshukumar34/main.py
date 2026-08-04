@@ -2,15 +2,15 @@
 
 # This project lets the user create an account, log in, and do actions using loops and conditions.
 print("create your account")
-username=str(input("Enter your name: "))
+username=str(input("Enter your name: ")).upper().strip()
 password=int(input("Enter your password: "))
+gmail=str(input("Enter your gmail  :"))
 print("your account succesfully created ")
 print("log in your account")
 while True:
-    name=str(input("Enter your name:"))
-    num1=name.capitalize()
+    name=str(input("Enter your name:")).upper().strip()
     num2= int(input("Enter your password:"))
-    if username==num1 and password==num2:
+    if username==name and password==num2:
             print("valid")
             break
     else:
@@ -23,4 +23,9 @@ print("1. change password")
 print("2.check length of your password")
 print("3.logout")
 
-# Project Idea: Text-Based ATM Machine (Advanced Loop Project)
+while True:
+     user=int(input("chose any one :"))
+     if user == 1:
+          
+
+

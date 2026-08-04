@@ -13,3 +13,21 @@
 # x=int(input("Enter your x value : "))
 # y=int(input("Enter your y value  :"))
 # print(calculator(x,y))
+
+# Program to check EVen oddd checker ? 
+# def even(num1):
+#     if num1%2==0:
+#         return num1
+
+# num2=int(input("Enter your number  :"))
+# print(even(num2))
+
+# 📌 3. Factorial Finder
+# Function to calculate factorial
+# Use loop inside function
+
+# num1=int(input("Enter your factorial number to :"))
+# factorial =1
+# while factorial>=1 :
+#     factorial*= num1-1
+#     print(factorial)

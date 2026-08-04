@@ -2,15 +2,14 @@
 # Update marks
 # Display topper
 # Save records permanentlyjj
-print("----Student card management system ------")
+
 dic={}
 def add_student():
     student=str(input("Enter your name :"))
     marks=int(input("Enter your marks  :"))
 
 
-    dic[student]=[marks]
-    print(dic)
+    dic[student]=marks
 
 def update():
     student=str(input("Enter your name :"))
@@ -23,17 +22,20 @@ def topper():
     if not dic:
         print("no student you fill ")
     else:
-        topper=max(dic,dic.get)
+        topper=max(dic,key=dic.get)
         print(f"your topper is {topper}")
 def show():
     if not dic:
         print("no student found")
     else:
         print(f"your all student record is {dic}")
+
+
+print("----Student card management system ------")
 print("1.Add student data")
 print("2.Update marks")
 print("3.Display topper ")
-print(" 4.Save records permanently")
+print("4.view all students with marks ")
 while True:
     choice=int(input("Enter your choice :"))
     if choice==1:
@@ -44,6 +46,8 @@ while True:
         
     elif choice==3:
         topper()
-    else:
+    elif choice==4:
         show()
+    else:
+        print("Wrong choice ! Try again")
     

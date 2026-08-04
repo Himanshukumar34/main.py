@@ -11,7 +11,7 @@ while True:
         roll_num=int(input("Enter your roll num:"))
         marks1=int(input("Enter your marks in scinece: "))
         marks2=int(input("Enter your marks in math: "))
-        marks3=int(input("Enter your marks in chemcistry"))
+        marks3=int(input("Enter your marks in chemcistry :"))
         num3=marks1+marks2+marks3
         num4=(num3/300)*100
         if num4>90 :

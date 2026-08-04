@@ -8,21 +8,21 @@ while True:
                 print("correct answer ")
                 count+=10 
             else:
-                print("wrong answer ")
+                print("wrong answer , the corrct answer is compiler  ")
 
-            num2=input("Q.2 what is list are mutable or not ?").upper()
-            if num2=="mutable".upper():
+            num2=input("Q.2  list is  mutable or not ?").upper()
+            if num2=="yes".upper():
                 print("correct answer")
                 count+=10
             else:
-                print("wrong answer ")
+                print("wrong answer ,the correct answer is yes ")
 
             num3=input("Q.3 WHAT is the output print(hello) ? :").upper()
             if num3=="error".upper():
                 print("correct answer")
                 count+=10
             else:
-                print("wrong answer ")
+                print("wrong answer , the correct answer is error ")
 
             print(f"your total score is {count} points ")
             break

@@ -9,7 +9,7 @@ data=input("Enter your qr code link :")
 qr.add_data(data)
 qr.make(fit=True)
 
-img = qr.make_image(fill_color="red", back_color="black")
+img = qr.make_image(fill_color="black", back_color="white")
 img.save("my_qr.png")
 
 print("QR Code created")
